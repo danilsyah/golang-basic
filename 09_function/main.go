@@ -17,6 +17,14 @@ func main() {
 
 	fmt.Println(fullName("danil", "syah", 26))
 
+	// gunakan _ ketika tidak membutuhkan nilai kembalian luas atau keliling
+	luas, keliling := calculate(2, 5)
+	fmt.Println("luas : ",luas)
+	fmt.Println("keliling : ",keliling)
+
+	fullName, umur := biodata("danil","syah", 26)
+	fmt.Println(fullName)
+	fmt.Println(umur)
 }
 
 // function tanpa parameter
@@ -37,4 +45,20 @@ func tambah(number int, numbertwo int) int {
 func fullName(firstName, lastName string, old int) string {
 	fullName := firstName + " " + lastName + " my Old : " + strconv.Itoa(old)
 	return fullName
+}
+
+// function multiple return
+func calculate(panjang int, lebar int)(int, int){
+	luas := panjang * lebar
+	keliling := 2 * (panjang + lebar)
+
+	return luas, keliling
+}
+
+// penggunaan nama nilai kembalian
+func biodata(firstName,lastName string, umur int)(fullName string,old int){
+	fullName = firstName + lastName
+	old = umur
+
+	return
 }
