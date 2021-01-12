@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+type Student struct {
+	ID   int
+	Name string
+	GPA  float32
+}
+
 func main() {
 	// pointer adalah sebuah variabel yang menyimpan alamat memory di sebuah nilai
 	numberA := 5
@@ -39,6 +45,17 @@ func main() {
 	fmt.Println("Nilai akhir : ", angka)
 	fmt.Println("Alamat memory : ", &angka)
 
+	fmt.Println("=============================================")
+	// struct pointer as parameter
+	student := Student{3216607, "Danil Syah", 3.64}
+	fmt.Println("student name (value) 	: ", student.Name)
+	fmt.Println("student name (address) : ", &student.Name)
+
+	graduate(&student)
+
+	fmt.Println("student name (value) 	: ", student.Name)
+	fmt.Println("student name (address) : ", &student.Name)
+
 }
 
 // contoh pointer
@@ -49,4 +66,9 @@ func change(old *int, new int) {
 	fmt.Println("Alamat memory dlm function : ", old)
 	fmt.Println("DI dalam function : ", *old)
 
+}
+
+// struct pointer as parameter
+func graduate(student *Student) {
+	student.Name = student.Name + " S.Kom"
 }
